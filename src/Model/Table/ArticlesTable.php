@@ -44,6 +44,10 @@ class ArticlesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('Images', [
+            'foreignKey' => 'image_id',
+        ]);
     }
 
     /**
@@ -69,5 +73,19 @@ class ArticlesTable extends Table
             ->allowEmptyFile('image_id');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules): RulesChecker
+    {
+        $rules->add($rules->existsIn('image_id', 'Images'), ['errorField' => 'image_id']);
+
+        return $rules;
     }
 }
