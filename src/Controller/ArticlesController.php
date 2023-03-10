@@ -33,7 +33,9 @@ class ArticlesController extends AppController
     public function view($id = null)
     {
         $article = $this->Articles->get($id, [
-            'contain' => [],
+            'contain' => [
+                'Images',
+            ],
         ]);
 
         $this->set(compact('article'));
@@ -69,7 +71,9 @@ class ArticlesController extends AppController
     public function edit($id = null)
     {
         $article = $this->Articles->get($id, [
-            'contain' => [],
+            'contain' => [
+                'Images',
+            ],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $article = $this->Articles->patchEntity($article, $this->request->getData());

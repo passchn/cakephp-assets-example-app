@@ -28,7 +28,16 @@
                 </tr>
                 <tr>
                     <th><?= __('Image Id') ?></th>
-                    <td><?= h($article->image_id) ?></td>
+                    <td>
+                        <p>
+                            <?= h($article->image_id) ?>
+                        </p>
+                        <?php if ($article->image?->isImage()): ?>
+                            <?= $this->Picture->webp($article->image, [230, 550, 900], [
+                                'class' => 'my-class',
+                            ]) ?>
+                        <?php endif; ?>
+                    </td>
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>

@@ -14,6 +14,8 @@ use Cake\ORM\Entity;
  * @property string|null $image_id
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modified
+ *
+ * @property \Assets\Model\Entity\Asset $image
  */
 class Article extends Entity
 {
@@ -32,5 +34,6 @@ class Article extends Entity
         'image_id' => true,
         'created' => true,
         'modified' => true,
+        'image' => true,
     ];
 }

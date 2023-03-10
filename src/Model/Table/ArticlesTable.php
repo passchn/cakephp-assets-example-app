@@ -11,6 +11,8 @@ use Cake\Validation\Validator;
 /**
  * Articles Model
  *
+ * @property \Assets\Model\Table\AssetsTable&\Cake\ORM\Association\BelongsTo $Images
+ *
  * @method \App\Model\Entity\Article newEmptyEntity()
  * @method \App\Model\Entity\Article newEntity(array $data, array $options = [])
  * @method \App\Model\Entity\Article[] newEntities(array $data, array $options = [])
@@ -44,9 +46,11 @@ class ArticlesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+        $this->addBehavior('Assets.BelongsToAssets');
 
         $this->belongsTo('Images', [
             'foreignKey' => 'image_id',
+            'className' => 'Assets.Assets',
         ]);
     }
 

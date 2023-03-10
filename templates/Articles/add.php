@@ -13,13 +13,15 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="articles form content">
-            <?= $this->Form->create($article) ?>
+            <?= $this->Form->create($article, ['type' => 'file']) ?>
             <fieldset>
                 <legend><?= __('Add Article') ?></legend>
                 <?php
                     echo $this->Form->control('title');
                     echo $this->Form->control('content');
-                    echo $this->Form->control('image_id');
+                    echo $this->Form->control('image.filename', [
+                        'type' => 'file',
+                    ]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
