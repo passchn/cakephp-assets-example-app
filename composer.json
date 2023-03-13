@@ -13,7 +13,7 @@
         "passchn/cakephp-assets": "^0.1.15"
     },
     "require-dev": {
-        "cakephp/bake": "2.7",
+        "cakephp/bake": "2.8.3",
         "cakephp/cakephp-codesniffer": "^4.5",
         "cakephp/debug_kit": "^4.5",
         "josegonzalez/dotenv": "^3.2",
