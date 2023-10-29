@@ -31,6 +31,18 @@
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>
+            <div>
+                <hr>
+                <h2>
+                    Attachments
+                </h2>
+                <?= $this->FilePool->forEntity(
+                    $article,
+                    allowDelete: true,
+                    allowEdit: true,
+                    allowUpload: true,
+                ) ?>
+            </div>
         </div>
     </div>
 </div>

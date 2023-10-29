@@ -17,6 +17,7 @@ namespace App\View;
 
 use Assets\View\Helper\PictureHelper;
 use Cake\View\View;
+use FilePool\View\Helper\FilePoolHelper;
 
 /**
  * Application View
@@ -26,6 +27,7 @@ use Cake\View\View;
  * @link https://book.cakephp.org/4/en/views.html#the-app-view
  *
  * @property PictureHelper $Picture
+ * @property FilePoolHelper $FilePool
  */
 class AppView extends View
 {
@@ -41,5 +43,6 @@ class AppView extends View
     public function initialize(): void
     {
         $this->loadHelper('Assets.Picture');
+        $this->loadHelper('FilePool.FilePool');
     }
 }

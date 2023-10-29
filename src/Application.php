@@ -65,6 +65,7 @@ class Application extends BaseApplication
 
         // Load more plugins here
         $this->addPlugin('Assets');
+        $this->addPlugin('FilePool');
     }
 
     /**
@@ -101,7 +102,7 @@ class Application extends BaseApplication
             // Cross Site Request Forgery (CSRF) Protection Middleware
             // https://book.cakephp.org/4/en/security/csrf.html#cross-site-request-forgery-csrf-middleware
             ->add(new CsrfProtectionMiddleware([
-                'httponly' => true,
+                'httponly' => false,
             ]));
 
         return $middlewareQueue;
